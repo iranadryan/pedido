@@ -14,6 +14,10 @@
   </head>
 
   <body>
+    <div id="resultado">
+      <img class="image" src="./illustration.svg" alt="Holding hands" />
+      <h1>AGORA ESTAMOS NAMORANDO!</h1>
+    </div>
     <div id="conteudo">
       <h2>ACEITA NAMORAR COMIGO?</h2>
       <div style="margin: auto; width: 244px;">
@@ -42,20 +46,43 @@
       margin: 0;
       padding: 0;
     }
-    
+
+    #resultado {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    img {
+      width: 200px;
+    }
+
     #conteudo {
       width: 100vw;
       height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
-      padding: 60px 0 10px 0;
+      padding: 240px 0 10px 0;
       text-align: center;
-      color: #623D76;
+    }
+
+    h1 {
+      color: #623d76;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    h2 {
+      color: #623d76;
+      text-align: center;
+      font-size: 24px;
     }
 
     .btn {
-      background: #C74C75;
+      background: #c74c75;
       color: white;
       border: none;
       width: 112px;
@@ -67,16 +94,18 @@
   </style>
 
   <script>
+    const resultado = document.querySelector("#resultado")
+    const conteudo = document.querySelector("#conteudo")
+
     function sim() {
-      alert("Agora estamos namorando!");
+      resultado.style.display = "flex"
+      conteudo.style.display = "none"
     }
 
     function desvia(btn) {
-      // btn declarado na função
       btn.style.position = "absolute";
       btn.style.bottom = geraPosicao(20, 60);
       btn.style.left = geraPosicao(20, 60);
-      console.log("opa, desviei...");
     }
 
     function geraPosicao(min, max) {
